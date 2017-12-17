@@ -1,0 +1,32 @@
+Collections --> Users, Expense-data, history
+
+User -> profile 
+    username: String,
+    password: String, 
+    weekly-income: Number,
+    weekly-savings:Number,
+    weekly-rent: Number,
+    weekly-recurring:Number,
+    weekly-budget: Number (based on math done with other items),
+    categories: Array,
+    expense-history: Array - relational to the week
+
+history -> week
+    startDate: String,
+    endDate:String, 
+    Expenses: Array (reference to all the expense items),
+    Budget: Number,
+    Purchased-items: Array, 
+
+Expense-Data -> item --- subdoc of week 
+    item:String, 
+    cost:Number,
+    notes: String,
+    category: String,
+
+
+
+//only be pulling expenses from this week, starting on sunday 
+
+
+

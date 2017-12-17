@@ -1,1 +1,519 @@
 @import 'normalize';
+
+//global styles 
+$primaryLight: #2574A9;
+$primaryDark: #22313F;
+$contrast: #F9BF3B;
+
+
+body{
+    font-size:62.5%;
+    line-height:1.2;
+}
+a{
+    text-decoration:none;
+}
+
+.button{
+    display:block;
+    background:$contrast;
+    color:#fff;
+    padding:10px 50px;
+    margin:10px 0;
+    border-radius:30px;
+    outline:none;
+    border:none;
+    font-size:18px;
+    transition:all .3s ease;
+    cursor:pointer;
+
+    &:hover{
+        background:lighten( $contrast,10%);
+      
+    }
+}
+body{
+    font-family:'Lato';
+    background-image:url('/assets/images/fabian-blank-78637.jpg');
+    background-size:cover;
+    background-color:#f8f5f5;
+    color:$primaryDark;
+    background-attachment: fixed;
+    height:100vh;
+    background-position: bottom right;
+}
+@font-face{
+    font-family: Abril;
+    src: url('/assets/fonts/AbrilFatface-Regular.woff') format('woff');
+}
+
+
+header{
+    background:#fff;
+    box-shadow:2px 2px 3px rgba(102, 102, 102, 0.3);
+    z-index:1000;
+    .wrapper{
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+    }
+    .logo{
+        font-family:Abril;
+        font-size:40px;
+        color:$primaryLight;
+    }
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    nav{
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+          ul{
+            li{
+                list-style: none;
+                display: inline-block;
+                background:none;
+                padding:10px;
+                font-size:1rem;
+                background:none;
+                a{
+                    color:$primaryDark;
+                    text-decoration:none;
+                    font-weight:bold;
+                    &:visited{
+                        color:$primaryDark;
+                    }
+                    &.active{
+                        color:$contrast;
+                    }
+                }
+
+            }
+          } 
+    }
+}
+
+.home-screen,
+.welcomescreen{
+    width:80%;
+    padding: 2rem;
+    margin: 7rem auto 0;
+    h2{
+        width:60%;
+        color:#666;
+        margin:2rem 0;
+        font-size:1.2rem;
+    }
+    h1{
+        font-size:2.2rem;
+    }
+    span{
+        color:#666;
+        font-size:1rem;
+        a{
+            color:$contrast;
+            text-decoration: underline;
+        }
+    }
+    blockquote{
+        p{
+            font-size:1.3rem;
+            text-shadow:1px 0px 0px #fff;
+            .quote{
+                font-size:1.8rem;
+            }
+        }
+
+    }
+}
+.wrapper{
+    width:1080px;
+    max-width:80%;
+    margin:0 auto;
+}
+footer{
+    clear:both;
+    text-align: center;
+    .copyright{
+        font-style: italic;
+        margin-top:5px;
+        font-size:15px;
+        i{
+            display:inline-block;
+            margin-right:5px;
+        }
+    }
+}
+
+.bar-graph{
+    width:500px;
+    div{
+        height:25px;
+    }
+}
+
+.budget-update{
+    background: #2474a9;
+    position: fixed;
+    width: 100%;
+    left: 0;
+    display: block;
+     top:100px;
+    z-index:100;
+    box-shadow:2px 2px 3px rgba(102, 102, 102, 0.3);
+    .wrapper{
+        display:flex;
+        flex-direction:row;
+        justify-content: space-between;
+        color:#fff;
+        font-size:2.5rem;
+        p{
+            font-size:1.4rem;
+        }
+    }
+    span{
+        font-weight:bold;
+        font-size:2.2rem;
+        font-family:'Abril';
+    }
+
+
+}
+
+.expense-list{
+    width:50%;
+    float:right;
+    padding-top:16rem;
+    ul{
+        height:596px;
+        overflow-y: scroll;
+    }
+}
+
+ul.expenseItemsList{
+        padding:0;
+        margin:0;
+
+     li{
+         list-style:none;
+         padding:15px;
+         position:relative;
+         font-size:1.1rem;
+ 
+         .purchase-date{
+             font-size:12px;
+             color:#666;
+             margin:0;
+             padding:0;
+         }
+         h3{
+             margin: 5px 0;
+             font-size:25px;
+         }
+ 
+         button{
+             position:absolute;
+             right:10px;
+             background:$contrast;
+             color:#fff;
+             border:none;
+             padding:5px 7px;
+         }
+         .cost{
+             font-size:18px;
+             &::before{
+                 content:'-'
+             }
+         }
+     }
+     li:nth-child(odd){
+         background:rgba(220, 220, 220, 0.71);
+     }
+     li:nth-child(even){
+        background: rgba(236, 236, 236, 0.78)
+     }
+}
+.track-expenses{
+    margin-top:12rem;
+    width:50%;
+    float:left;
+    background:#fff;
+    margin-bottom:8rem;
+    form{
+        padding:1rem;
+        fieldset{
+            width:100%;
+            outline:none;
+            border:none;
+        }
+        input,
+        textarea,
+        select{
+            width:95%;
+            margin:0 auto;
+            display:block;
+            padding:.5rem;
+            font-size:1.1rem
+        }
+        label{
+            margin-left:1rem;
+            margin-bottom:10px;
+            display:block;
+            font-size:1.1rem;
+        }
+        .error{
+            color:red;
+            margin-left:1rem;
+        }
+        .button{
+            margin-top:1rem;
+        }
+
+    }
+}
+
+#calcBudget{
+    width:60%;
+    margin:10rem auto;
+    background:rgba(255,255,255,0.7);
+    padding:2rem;
+    fieldset{
+        width:100%;
+        padding:1rem;
+        display:block;
+        border:none;
+        input,
+        textarea,
+        select,
+        label{
+            width:80%;
+            margin:5px auto;
+            display:block;
+            font-size:1.1rem;
+        }
+        input{
+            padding:10px;
+        }
+       
+
+    }
+    input[type=submit]{
+        width:50%;
+        margin:5px auto;
+        display:block;
+    }
+}
+
+.filter-form{
+    margin-top:8rem;
+    input[type=date]{
+        padding:5px;
+        margin:10px 5px;
+        font-size:1.2rem
+    }
+}
+
+.expense-history{
+    float:left;
+    width:50%;
+    ul{
+        height:600px;
+        overflow-y:scroll;
+    }
+}
+
+.graphs{
+    width:50%;
+    float:left;
+    padding:1rem;
+    padding-top:0;
+    background:rgba(255,255,255,0.5);
+    h2{
+        margin-top:0;
+
+    }
+}
+
+
+.login-form,
+.signup-form{
+    width:60%;
+    padding: 2rem;
+    margin: 7rem auto 0;
+    background:rgba(255,255,255,0.7);
+    h1{
+        text-align:center;
+        font-size:2rem;
+    }
+    input,
+    textarea,
+    select,
+    label{
+        font-size:1.1rem;
+        width:80%;
+        margin:5px auto;
+        display:block;
+    }
+    input{
+        margin-bottom:1rem;
+        padding:.8rem;
+    }
+    .button{
+        margin:1rem auto;
+     
+    }
+}
+
+.menu-toggle{
+    display:block;
+}
+
+// MEDIA QUERIES
+@media(max-width:1110px){
+  .budget-update{
+     top:48px;
+  }
+  .home-screen, .welcomescreen{
+      padding:0;
+      width:100%;
+      margin:5rem auto 0;
+  }
+  #calcBudget {
+    width: 100%;
+    margin: 4rem auto;
+}
+
+.filter-form{
+    margin-top:4rem;
+}
+h3,
+.graphs h2{
+    font-size:1.3rem;
+}
+.recharts-wrapper{
+    max-width:100%;
+}
+    .main-nav{
+        display: block;
+        flex-direction: row;
+        position: fixed;
+        background: #f0f0f0;
+        top: 0;
+        right: -300px;
+        bottom: 0;
+        margin: 0;
+        width: 300px;
+        padding:5rem 1rem 0;
+        transition: all .3s linear;
+        z-index:101;
+        li{
+            color:#fff;
+            display:block;
+        }
+        &.active{
+             right:0;
+        }
+    }
+    .menu-toggle{
+        display:block;
+        position:relative;  
+        z-index:102;
+        
+        .bar{
+            height:2px;
+            width:25px;
+            content:'';
+
+            display:block;
+            background:$primaryLight;
+
+            &:before{
+                content:'';
+                background:$primaryLight;
+                top:-5px;
+                position: absolute;
+                height:2px;
+                width:25px;
+            }
+            &:after{
+                content:'';
+                background:$primaryLight;
+               bottom:-5px;
+                position: absolute;
+                height:2px;
+                width:25px;
+            }
+        }
+
+        
+    
+     
+       
+    }
+    header .wrapper{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+   
+}
+
+@media(max-width:860px){
+    .track-expenses,
+    .expense-list,
+    .graphs,
+    .expense-history{
+        width:100%;
+        float:none;
+        margin-top:0;
+        padding-top:0;
+    }
+
+    .home-screen h2{
+        width:100%;
+    }
+    .expense-list,
+    .expenseItemsList{
+        margin-top:9rem;
+        height:auto;
+        max-height:285px;
+        overflow:scroll;
+        ul{
+            height:unset;
+        }
+        li p{
+            margin:5px 0;
+            font-size:1rem;
+        }
+    }
+    .graphs{
+        padding-top:1rem;
+    }
+    .track-expenses{
+        fieldset{
+            padding:5px 0;
+            label, input, textarea, select{
+                width:100%;
+                margin-left:0;
+            }
+        }
+    }
+    .login-form, .signup-form{
+        width:100%;
+        margin:5rem auto 0;
+        padding:2rem 1rem;
+        input,
+        label{
+            width:100%;
+        }
+    }
+}
+
+@media(max-width:500px){
+    body{
+        background:#f6f5f3;
+    }
+}
