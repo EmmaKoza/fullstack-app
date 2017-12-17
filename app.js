@@ -6,20 +6,22 @@ const passport = require('passport');
 const bodyParser = require('body-parser');
 const session = require('express-session');
 const ObjectId = require('mongodb').ObjectId;
-
 //these are my models!
 const ExpenseItem = require('./models/item.js');
 const Profile = require('./models/profile.js');
 
-app.use(bodyParser.json())
-mongoose.connect('mongodb://localhost/budgetapp');
+mongoose.connect(process.env.MONGODB_SERVER);
+// app.listen(process.env.PORT);
+
+// app.use(bodyParser.json())
+// mongoose.connect('mongodb://localhost/budgetapp');
 
 //user auth stuff
 app.use(bodyParser.json());
 passport.use(Profile.createStrategy());
 passport.serializeUser(Profile.serializeUser()); 
 passport.deserializeUser(Profile.deserializeUser());
-app.use(session({ secret: 'mysecret', resave: false, saveUninitialized: true })); // <-- add this line
+app.use(session({ secret: process.env.COOKIE_SECRET, resave: false, saveUninitialized: true }));
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -292,11 +294,20 @@ app.post('/api/expensesitems',(req,res)=>{
 
 // This route serves your index.html file (which
 // initializes React)
+// app.get('*', function(req, res, next) {
+//   res.sendFile(path.join(__dirname,'index.html'));
+// });
+
+// // Start your server, and listen on port 8080.
+// app.listen(8080, function() {
+//   console.log("App is now listening on port 8080!");
+// })
+
 app.get('*', function(req, res, next) {
   res.sendFile(path.join(__dirname,'index.html'));
 });
 
-// Start your server, and listen on port 8080.
-app.listen(8080, function() {
-  console.log("App is now listening on port 8080!");
+
+app.listen(process.env.PORT, function() {
+  console.log(`App is now listening on port ${process.env.PORT}`);
 })
