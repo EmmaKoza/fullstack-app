@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/budgetapp');
+mongoose.connect(process.env.MONGODB_SERVER);
 const Profile = require('../models/profile.js');
 
 const moment = require('moment');
