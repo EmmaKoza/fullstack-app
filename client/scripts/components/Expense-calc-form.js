@@ -33,15 +33,6 @@ class ExpenseCalcForm extends React.Component {
                         onChange={this.props.handleChange}
                     />
                 </fieldset>
-                {/* <fieldset>
-                <Field
-                        type="text"
-                        name="savings"
-                        label="The amount you put into savings each week"
-                        value={this.props.income}
-                        onChange={this.props.handleChange}
-                    />
-                </fieldset> */}
                 <fieldset>
                 <Field
                         type="text"

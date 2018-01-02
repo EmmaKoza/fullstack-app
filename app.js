@@ -26,9 +26,10 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 //my task runner 
-const timer = require('./server/task-runner.js');
+// const timer = require('./server/task-runner.js');
+// timer.timer();
 
-timer.timer();
+
 // This serves all files placed in the /public
 // directory (where gulp will build all React code)
 app.use(express.static('public'));
@@ -72,7 +73,6 @@ const signUpUser = (req, res, next) => {
     if (err) {
       res.send(err);
     } else {
-      // console.log("registeration successful! ", user);
       next();
     }
   })
@@ -125,10 +125,10 @@ app.get('/api/userprofiles', (req, res) => {
    const savings = parseFloat(userInfo.savings); 
    const budgetMath = income - (rent + recurring + savings);
    const budgetMathTwo = parseFloat(budgetMath).toFixed(2);
-   const remaining = {remainingAmount: budgetMathTwo}
-   const budget = {budget:budgetMathTwo}
-    //logic  to figure out when the next sunday is and set that as the value for next reset or w/e 
-   const calculatedUser = Object.assign(userInfo.user, budget, remaining )
+   const remaining = {remainingAmount : budgetMathTwo}
+   const budget = {budget : budgetMathTwo} 
+   const calculatedUser = Object.assign(userInfo.user, budget, remaining)
+   console.log(calculatedUser);
    const userProfile = Profile.findById(id, (err, doc)=>{
      if(err){
        res.status(404).send(err);

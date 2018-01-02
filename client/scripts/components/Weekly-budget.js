@@ -6,6 +6,7 @@ class WeeklyBudget extends React.Component{
 
     render(){
         console.log('remaining', this.props.remaining);
+        console.log(this.props);
        return(
             <budget className="budget-update">
                 <div className="wrapper">

@@ -70,12 +70,14 @@ class App extends React.Component{
 
     toggleNav(e){
         e.preventDefault();
-        const nav =document.querySelector('.main-nav');
+        const nav = document.querySelector('.main-nav');
+        const toggleBtn = document.querySelector('.menu-toggle')
         if(nav.classList.contains('active')){
-            nav.classList.remove('active');
-           
+            nav.classList.remove('active'); 
+            toggleBtn.classList.remove('active');
         }else{
             nav.classList.add('active');
+            toggleBtn.classList.add('active');
         }
     }
 
@@ -90,12 +92,14 @@ class App extends React.Component{
             body: JSON.stringify(userInfo)
 
         })
-        .then(console.log('hello'));
+        .then(res => res.json())
+        .then((json)=>{
+            console.log(json);
+            this.setState({user:json})
+        })
         
     }
 
-
-    //handle submit event for the calculate budget form
     handleSubmit(e){
         e.preventDefault();
         this.saveUserInfo();

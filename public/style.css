@@ -421,7 +421,6 @@ body {
   background-color: #f8f5f5;
   color: #22313F;
   background-attachment: fixed;
-  height: 100vh;
   background-position: bottom right; }
 
 @font-face {
@@ -432,6 +431,7 @@ header {
   background: #fff;
   box-shadow: 2px 2px 3px rgba(102, 102, 102, 0.3);
   z-index: 1000;
+  padding: 10px 0;
   position: fixed;
   top: 0;
   left: 0;
@@ -452,7 +452,7 @@ header {
       list-style: none;
       display: inline-block;
       background: none;
-      padding: 10px;
+      padding: 0 10px;
       font-size: 1rem;
       background: none; }
       header nav ul li a {
@@ -489,10 +489,28 @@ header {
   .home-screen blockquote p,
   .welcomescreen blockquote p {
     font-size: 1.3rem;
-    text-shadow: 1px 0px 0px #fff; }
+    text-shadow: 1px 0px 0px #fff;
+    position: relative;
+    display: inline; }
     .home-screen blockquote p .quote,
     .welcomescreen blockquote p .quote {
-      font-size: 1.8rem; }
+      font-family: serif;
+      font-size: 2.8rem;
+      position: absolute; }
+      .home-screen blockquote p .quote.left,
+      .welcomescreen blockquote p .quote.left {
+        top: -14px;
+        left: -21px; }
+      .home-screen blockquote p .quote.right,
+      .welcomescreen blockquote p .quote.right {
+        bottom: -30px;
+        right: -25px; }
+    .home-screen blockquote p.source,
+    .welcomescreen blockquote p.source {
+      display: block; }
+
+.welcomescreen {
+  background: rgba(255, 255, 255, 0.5); }
 
 .wrapper {
   width: 1080px;
@@ -540,7 +558,7 @@ footer {
 .expense-list {
   width: 50%;
   float: right;
-  padding-top: 16rem; }
+  padding-top: 12rem; }
   .expense-list ul {
     height: 596px;
     overflow-y: scroll; }
@@ -721,7 +739,8 @@ ul.expenseItemsList {
     z-index: 101; }
     .main-nav li {
       color: #fff;
-      display: block; }
+      display: block;
+      padding: 10px; }
     .main-nav.active {
       right: 0; }
   .menu-toggle {
@@ -732,6 +751,7 @@ ul.expenseItemsList {
       height: 2px;
       width: 25px;
       content: '';
+      transition: all .3s ease;
       display: block;
       background: #2574A9; }
       .menu-toggle .bar:before {
@@ -740,14 +760,24 @@ ul.expenseItemsList {
         top: -5px;
         position: absolute;
         height: 2px;
-        width: 25px; }
+        width: 25px;
+        transition: all .3s ease; }
       .menu-toggle .bar:after {
         content: '';
+        transition: all .3s ease;
         background: #2574A9;
         bottom: -5px;
         position: absolute;
         height: 2px;
         width: 25px; }
+  .active .bar {
+    background: transparent; }
+    .active .bar:before {
+      transform: rotate(45deg);
+      top: 0; }
+    .active .bar:after {
+      transform: rotate(-45deg);
+      top: 0; }
   header .wrapper {
     display: flex;
     align-items: center;

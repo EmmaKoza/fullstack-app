@@ -15,8 +15,8 @@ const Dash = (props) =>{
         <div className="welcomescreen">
             <h1>Welcome Back! </h1>
                 <blockquote>
-                    <p><span className="quote">&#8220;</span> {random.quote} <span className="quote">&#8221;</span></p>
-                    <p>	<span className="quote">&mdash;</span> {random.source} </p>
+                    <p><span className="left quote">&#8220;</span> {random.quote} <span className="right quote">&#8221;</span></p>
+                    <p className="source">	<span className="dash">&mdash;</span> {random.source} </p>
                 </blockquote>
             </div>
     )

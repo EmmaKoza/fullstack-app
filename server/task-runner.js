@@ -40,8 +40,8 @@ exports.timer=()=>{
         const currentMinute = moment().minute();
         const currentSecond = moment().second();
         const timeRightNow = `${currentHour}:${currentMinute}:${currentSecond}`
-        if(timeRightNow === '00:00:00' && currentDay === 7){
-            updateUserData()
+        if(timeRightNow === '1:42:0' && currentDay === 3){
+            updateUserData();
         }
     }, 1000)
 }
