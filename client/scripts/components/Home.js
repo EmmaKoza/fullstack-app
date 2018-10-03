@@ -12,9 +12,6 @@ const Home = (props)=>{
                     </a>
                     <span>Have an account? <a href="/login">Login</a></span>
                 </div>
-            
-         
-
     )
 }
 
